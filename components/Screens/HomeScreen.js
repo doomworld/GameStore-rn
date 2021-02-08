@@ -37,16 +37,16 @@ const HomeScreen = ({ navigation }) => {
 			<StatusBar barStyle="light-content" />
 			<Header>
 				<Text large>
-					Hello
+					Hello {'\t'}
 					<Text large bold>
 						Dr. Doom
 					</Text>
 					{`\n`}
-					<Text large bold>
+					<Text medium bold>
 						Welcome to Doomworld!
 					</Text>
 				</Text>
-				<Avatar source={require('../../assets/icon.png')} />
+				<Avatar source={require('../../assets/profile.jpg')} />
 			</Header>
 			<Categories horizontal={true} showHorizontalScrollIndicator={false}>
 				{categoryList.map((category, index) => {
@@ -69,7 +69,7 @@ const HomeScreen = ({ navigation }) => {
 						selectedCategory === 'All'
 					);
 				})}
-				keyExtracter={(item) => string(item.id)}
+				keyExtracter={(item) => String(item.id)}
 				renderItem={({ item }) => GameItem(item)}
 				ref={gamesRef}
 			></Games>
@@ -92,6 +92,7 @@ const Header = styled.View`
 const Avatar = styled.Image`
 	width: 40px;
 	height: 40px;
+	border-radius: 20px;
 `;
 
 const Categories = styled.ScrollView`

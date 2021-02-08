@@ -6,7 +6,6 @@ const Text = ({ ...props }) => {
 };
 
 const TextStyle = styled.Text`
-	font-family: 'Avenir Next';
 	color: ${(props) => props.color ?? '#ffffff'};
 
 	${({ title, large, medium, small }) => {

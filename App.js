@@ -9,10 +9,8 @@ import GameScreen from './components/Screens/GameScreen';
 import ProfileScreen from './components/Screens/ProfileScreen';
 import LiveScreen from './components/Screens/LiveScreen';
 import { Entypo } from '@expo/vector-icons';
-import {
-	useFonts,
-	Avenir_Next_Rounded,
-} from '@expo-google-fonts/Avenir_Next_Rounded';
+// import { useFonts } from '@expo-google-fonts/inter';
+import Text from './components/Text';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -76,13 +74,11 @@ const LoadingScreen = () => {
 };
 
 export default function App() {
-	let [fontsLoaded] = useFonts({
-		Avenir_Next_Rounded,
-	});
+	// let [fontsLoaded] = useFonts({});
 
-	if (!fontsLoaded) {
-		return <LoadingScreen />;
-	}
+	// if (fontsLoaded) {
+	// 	return <LoadingScreen />;
+	// }
 
 	return (
 		<NavigationContainer>
