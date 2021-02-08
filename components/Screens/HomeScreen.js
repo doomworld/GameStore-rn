@@ -25,7 +25,9 @@ const HomeScreen = ({ navigation }) => {
 						<Text medium bold>
 							{game.title}
 						</Text>
-						<Text small>{game.teaser}</Text>
+						<Text small color="#9a9a9a">
+							{game.teaser}
+						</Text>
 					</GameTitle>
 				</GameInfo>
 			</Game>
@@ -51,7 +53,10 @@ const HomeScreen = ({ navigation }) => {
 			<Categories horizontal={true} showHorizontalScrollIndicator={false}>
 				{categoryList.map((category, index) => {
 					return (
-						<Category key={index} onPress={() => changeCategory(category)}>
+						<Category
+							key={String(index)}
+							onPress={() => changeCategory(category)}
+						>
 							<CategoryName
 								selected={selectedCategory === category ? true : false}
 							>
@@ -69,10 +74,10 @@ const HomeScreen = ({ navigation }) => {
 						selectedCategory === 'All'
 					);
 				})}
-				keyExtracter={(item) => String(item.id)}
+				keyExtracter={(item) => item.id.toString()}
 				renderItem={({ item }) => GameItem(item)}
 				ref={gamesRef}
-			></Games>
+			/>
 		</Container>
 	);
 };
@@ -102,7 +107,7 @@ const Categories = styled.ScrollView`
 
 const Category = styled.TouchableOpacity`
 	align-items: center;
-	margin: 0 16px;
+	margin: 0 16px 5px;
 	height: 32px;
 `;
 
